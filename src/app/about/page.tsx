@@ -1,19 +1,20 @@
-import { use } from "react";
 import { Data } from "../../pages/api/hello";
 
 async function loadData() {
-  const data = await fetch("http://localhost:3000/api/hello");
+  const data = await fetch("http://localhost:3000/api/hello", {
+    cache: "no-store",
+  });
   return data.json();
 }
 
-export default function About() {
-  let data = use(loadData());
+export default async function About() {
+  let data: Data[] = await loadData();
 
   return (
-    <div>
+    <>
       {data.map((item: Data) => (
         <div key={item.key}>{item.name}</div>
       ))}
-    </div>
+    </>
   );
 }

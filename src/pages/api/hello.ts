@@ -6,8 +6,12 @@ export type Data = {
   key: number;
 };
 
-export default function handler(
-  req: NextApiRequest,
+function delay(time: number) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+export default async function handler(
+  _req: NextApiRequest,
   res: NextApiResponse<Data[]>
 ) {
   res.status(200).json([
@@ -15,5 +19,6 @@ export default function handler(
     { name: "Barbek Luis", key: 1 },
     { name: "Van Greq", key: 2 },
     { name: "Luis Monro", key: 3 },
+    { name: "Vahe Mikayelyan", key: 4 },
   ]);
 }
