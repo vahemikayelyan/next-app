@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./globals.css";
+import styles from "./page.module.css";
 
 export default function RootLayout({
   children,
@@ -14,11 +14,10 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <nav>
-          <Link href={"/"} style={{ marginRight: 10 }}>
-            Home
-          </Link>
+        <nav className={styles.nav}>
+          <Link href={"/"}>Home</Link>
           <Link href={"/about"}>About</Link>
+          <Link href={"/users"}>Users</Link>
         </nav>
         <br />
         <div>{children}</div>
