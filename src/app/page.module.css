@@ -1,10 +1,10 @@
 .main {
+  --card-rgb: 60, 179, 113;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
-  min-height: 100vh;
+  color: white;
 }
 
 .description {
@@ -47,10 +47,14 @@
 }
 
 .card {
-  padding: 1rem 1.2rem;
+  height: 8rem;
+  width: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
+  background: rgba(var(--card-rgb), 1);
+  border: 1px solid rgba(var(--card-border-rgb), 1);
   transition: background 200ms, border 200ms;
 }
 
@@ -154,7 +158,7 @@
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
+    background: rgba(var(--card-rgb), 0.7);
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
   }
 
@@ -269,7 +273,26 @@
     transform: rotate(0deg);
   }
 }
+
 .nav {
   display: flex;
   gap: 1rem;
+}
+
+.skeleton {
+  opacity: 0.8;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  width: 3rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 90%);
+  }
 }

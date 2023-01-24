@@ -1,4 +1,5 @@
 import { Data } from "@/pages/api/hello";
+import styles from "../page.module.css";
 
 async function loadData() {
   const data = await fetch("http://localhost:3000/api/hello", {
@@ -8,13 +9,15 @@ async function loadData() {
 }
 
 export default async function Users() {
-  const data: Data[] = await loadData();
+  const users: Data[] = await loadData();
 
   return (
-    <>
-      {data.map((item: Data) => (
-        <div key={item.key}>{item.name}</div>
+    <div className={styles.main}>
+      {users.map((user: Data) => (
+        <div className={styles.card} key={user.key}>
+          <span>{user.name}</span>
+        </div>
       ))}
-    </>
+    </div>
   );
 }

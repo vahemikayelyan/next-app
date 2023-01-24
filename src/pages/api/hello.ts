@@ -14,6 +14,7 @@ export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse<Data[]>
 ) {
+  await delay(3000);
   res.status(200).json([
     { name: "John Doe", key: 0 },
     { name: "Barbek Luis", key: 1 },
