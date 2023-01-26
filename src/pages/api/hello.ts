@@ -1,10 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { UserSchema } from "@/databese/models/user.model";
 import type { NextApiRequest, NextApiResponse } from "next";
-
-export type Data = {
-  name: string;
-  key: number;
-};
 
 function delay(time: number) {
   return new Promise((resolve) => setTimeout(resolve, time));
@@ -12,14 +8,10 @@ function delay(time: number) {
 
 export default async function handler(
   _req: NextApiRequest,
-  res: NextApiResponse<Data[]>
+  res: NextApiResponse<UserSchema[]>
 ) {
-  await delay(3000);
-  res.status(200).json([
-    { name: "John Doe", key: 0 },
-    { name: "Barbek Luis", key: 1 },
-    { name: "Van Greq", key: 2 },
-    { name: "Luis Monro", key: 3 },
-    { name: "Vahe Mikayelyan", key: 4 },
-  ]);
+  //await delay(3000);
+  UserSchema.findAll().then((data) => {
+    return res.status(200).json(data);
+  });
 }

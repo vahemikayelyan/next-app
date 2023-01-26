@@ -1,4 +1,4 @@
-import { Data } from "@/pages/api/hello";
+import { UserSchema } from "@/databese/models/user.model";
 import styles from "../page.module.css";
 
 async function loadData() {
@@ -9,13 +9,13 @@ async function loadData() {
 }
 
 export default async function Users() {
-  const users: Data[] = await loadData();
+  const users: UserSchema[] = await loadData();
 
   return (
     <div className={styles.main}>
-      {users.map((user: Data) => (
-        <div className={styles.card} key={user.key}>
-          <span>{user.name}</span>
+      {users.map((user: any) => (
+        <div className={styles.card} key={user.id}>
+          <span>{user.email}</span>
         </div>
       ))}
     </div>
