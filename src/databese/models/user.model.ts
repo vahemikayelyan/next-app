@@ -1,7 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import connection from "../config/connection";
 
-interface UserModel {
+export interface UserModel {
   id?: string;
   email: string;
   password: string;

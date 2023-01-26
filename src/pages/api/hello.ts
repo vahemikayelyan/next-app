@@ -10,7 +10,7 @@ export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse<UserSchema[]>
 ) {
-  UserSchema.findAll().then((data) => {
+  UserSchema.findAll({ raw: true }).then((data) => {
     //await delay(3000);
     return res.status(200).json(data);
   });

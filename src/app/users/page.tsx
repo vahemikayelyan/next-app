@@ -1,4 +1,4 @@
-import { UserSchema } from "@/databese/models/user.model";
+import { UserModel } from "@/databese/models/user.model";
 import styles from "../page.module.css";
 
 async function loadData() {
@@ -9,11 +9,11 @@ async function loadData() {
 }
 
 export default async function Users() {
-  const users: UserSchema[] = await loadData();
+  const users: UserModel[] = await loadData();
 
   return (
     <div className={styles.main}>
-      {users.map((user: any) => (
+      {users.map((user) => (
         <div className={styles.card} key={user.id}>
           <span>{user.email}</span>
         </div>
