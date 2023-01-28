@@ -1,20 +1,11 @@
-import { Options } from "sequelize";
-
-interface ConfigDB {
-  development: Options;
-  test: Options;
-  production: Options;
-}
+import { resolve } from "path";
 
 const env = process.env;
 
-const config: ConfigDB = {
+const DBconfig = {
   development: {
-    database: env.DB_NAME,
-    username: env.DB_USERNAME,
-    password: env.DB_PASSWORD,
-    host: env.DB_HOST,
-    dialect: "mysql",
+    host: resolve("./", "database.sqlite"),
+    dialect: "sqlite",
   },
   test: {
     database: env.DB_NAME,
@@ -32,4 +23,4 @@ const config: ConfigDB = {
   },
 };
 
-export default config;
+export default DBconfig;
