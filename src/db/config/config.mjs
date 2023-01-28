@@ -2,7 +2,7 @@ import { resolve } from "path";
 
 const env = process.env;
 
-const DBconfig = {
+const config = {
   development: {
     host: resolve("./", "database.sqlite"),
     dialect: "sqlite",
@@ -23,4 +23,4 @@ const DBconfig = {
   },
 };
 
-export default DBconfig;
+export default config;
