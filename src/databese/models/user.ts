@@ -1,15 +1,15 @@
 import { DataTypes, Model } from "sequelize";
-import connection from "../config/connection";
+import sequelize from "./index";
 
 export interface UserModel {
-  id?: string;
+  id: string;
   email: string;
   password: string;
 }
 
-export class UserSchema extends Model<UserModel> {}
+export class User extends Model<UserModel> {}
 
-UserSchema.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -29,5 +29,5 @@ UserSchema.init(
       validate: { notEmpty: { msg: "Please enter the password" } },
     },
   },
-  { sequelize: connection, tableName: "users" }
+  { sequelize }
 );

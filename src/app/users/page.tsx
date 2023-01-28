@@ -1,4 +1,4 @@
-import { UserModel } from "@/databese/models/user.model";
+import { UserModel } from "@/databese/models/user";
 import styles from "../page.module.css";
 
 async function loadData() {
