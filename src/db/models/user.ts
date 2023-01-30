@@ -10,21 +10,21 @@ export class User extends Model {
 User.init(
   {
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
+      type: DataTypes.INTEGER,
     },
     email: {
-      type: DataTypes.STRING,
       allowNull: false,
       unique: { msg: "The email is already taken", name: "email" },
       validate: { notEmpty: { msg: "Please enter the email" } },
+      type: DataTypes.STRING,
     },
     password: {
-      type: DataTypes.STRING,
       allowNull: false,
       validate: { notEmpty: { msg: "Please enter the password" } },
+      type: DataTypes.STRING,
     },
   },
   { sequelize }
