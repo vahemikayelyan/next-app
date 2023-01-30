@@ -1,4 +1,4 @@
-import { User } from "@/db/models/user";
+import User from "@/db/models/user";
 import styles from "../page.module.css";
 
 async function loadData() {
