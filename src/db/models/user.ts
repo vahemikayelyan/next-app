@@ -1,7 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "./index";
 
-class User extends Model {
+export class User extends Model {
   declare id: number;
   declare email: string;
   declare password: string;
@@ -29,5 +29,3 @@ User.init(
   },
   { sequelize }
 );
-
-export default User;
