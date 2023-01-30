@@ -1,4 +1,4 @@
-import { UserModel } from "@/db/models/user";
+import { User } from "@/db/models/user";
 import styles from "../page.module.css";
 
 async function loadData() {
@@ -9,7 +9,7 @@ async function loadData() {
 }
 
 export default async function Users() {
-  const users: UserModel[] = await loadData();
+  const users: User[] = await loadData();
 
   return (
     <div className={styles.main}>

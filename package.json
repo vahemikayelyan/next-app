@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate": "env-cmd sequelize-cli db:migrate",
-    "migrate-undo": "env-cmd sequelize-cli db:migrate:undo"
+    "migrate": "env-cmd sequelize-cli db:migrate"
   },
   "dependencies": {
     "@next/font": "13.1.6",
