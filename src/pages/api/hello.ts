@@ -6,12 +6,12 @@ function delay(time: number) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-export default async function handler(
+export default function handler(
   _req: NextApiRequest,
   res: NextApiResponse<User[]>
 ) {
+  //await delay(3000);
   User.findAll({ raw: true }).then((data) => {
-    //await delay(3000);
     return res.status(200).json(data);
   });
 }
