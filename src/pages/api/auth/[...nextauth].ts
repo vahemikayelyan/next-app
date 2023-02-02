@@ -6,9 +6,14 @@ export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
-      credentials: { email: {} },
-      async authorize(credentials, req) {
-        return { id: "1", email: "vmikyan@gmail.com" };
+      credentials: { email: {}, password: {} },
+      async authorize(credentials, _req) {
+        console.log(credentials);
+        if (credentials?.email == "admin" && credentials.password == "admin") {
+          return { id: "1", email: "vmikyan@gmail.com" };
+        }
+
+        return null;
       },
     }),
   ],
